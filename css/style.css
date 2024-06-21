@@ -860,3 +860,8 @@ textarea:focus{
   transform: translate(245%, 140%);
   border-radius: 10;
 }
+h1 {
+  position: absolute;
+  font-size: xx-large;
+  transform: translate(10%, -10%)
+}
