@@ -845,7 +845,7 @@ textarea {
   transform: translate(5%, 1%); 
   resize: none;
   background-color: #ebebeb;
-  font-family: "Roboto";
+  font-family: "Noto Sans";
 }
 #right {
   transform: translate(228%, 1%);
