@@ -846,6 +846,7 @@ textarea {
   resize: none;
   background-color: #ebebeb;
   font-family: "Noto Sans";
+  z-index: 10;
 }
 #right {
   transform: translate(228%, 1%);
@@ -864,4 +865,20 @@ h1 {
   position: absolute;
   font-size: xx-large;
   transform: translate(10%, -10%)
+}
+#select {
+  z-index: 0;
+  transform: translate(110%, 2000%);
+
+}
+select {
+  background-color: #0355cc;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  width: 30%;
+  box-sizing: border-box;
 }
