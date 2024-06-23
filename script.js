@@ -26,7 +26,7 @@ function do_it() {
         consonants = data.consonants
         pos = 0
         for (const [key, value] of Object.entries(consonants)) {
-            consonants[key] = consonants[key][pos]
+            consonants[key] = consonants[key][pos] || ""
             consonants[key] = consonants[key].replaceAll(" ", "")
         }
         consonants = objectFlip(consonants)
