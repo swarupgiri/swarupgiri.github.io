@@ -13,12 +13,41 @@ var consonants;
 var extras;
 var vowels;
 //usage:
+function objectFlip(obj) {
+    const ret = {};
+    Object.keys(obj).forEach(key => {
+      ret[obj[key]] = key;
+    });
+    return ret;
+  }
 function do_it() {
     readTextFile("transliteratorKeys.json", function(text){
         var data = JSON.parse(text);
         consonants = data.consonants
+        pos = 0
+        for (const [key, value] of Object.entries(consonants)) {
+            consonants[key] = consonants[key][pos]
+            consonants[key] = consonants[key].replaceAll(" ", "")
+        }
+        consonants = objectFlip(consonants)
+
         extras = data.extras
+        for (const [key, value] of Object.entries(extras)) {
+            extras[key] = extras[key][pos]
+            extras[key] = extras[key].replaceAll(" ", "")
+        }
+        extras = objectFlip(extras)
         vowels = data.vowels
+        for (const [key, value] of Object.entries(vowels)) {
+            vowels[key] = vowels[key][pos]
+            vowels[key] = vowels[key].replaceAll(" ", "")
+        }
+        vowels = objectFlip(vowels)
+        /*for (var i in vowels) {
+            vowels[i] = vowels[i][pos]
+            vowels = objectFlip(vowels)
+            console.log(vowels)
+        }*/
         val = transliterate(document.getElementById("left").value, consonants, extras, vowels)
         console.log(val)
         document.getElementById("right").value = val
