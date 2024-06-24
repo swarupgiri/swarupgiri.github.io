@@ -76,7 +76,7 @@ function transliterate(input, consonants, extras, vowels) {
     output = output.replaceAll("a्", "").replaceAll("a3", "āā").replaceAll("i3", "īī")
                    .replaceAll("u3", "ūū").replaceAll("ṛ3", "ṝṝ").replaceAll("ḷ3", "ḹḹ")
                    .replaceAll("ē3", "ēē").replaceAll("ai4", "āi").replaceAll("ō3", "ōō")
-                   .replaceAll("au4", "āu").replaceAll("a્", "");
+                   .replaceAll("au4", "āu").replaceAll("a્", "").replaceAll("a్", "");
     
     const keys = Object.keys(vowels);
     for (let i = 0; i < keys.length; i++) {
