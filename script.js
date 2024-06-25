@@ -1,3 +1,5 @@
+
+
 function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -9,6 +11,33 @@ function readTextFile(file, callback) {
     }
     rawFile.send(null);
 }
+
+
+
+readTextFile("transliteratorKeys.json", function(text) {
+    var data = JSON.parse(text);
+    for (const [key, value] of Object.entries(data.names)) {
+        console.log(key, value)
+        if (value !== "TEXT") {
+            var new_val = document.createElement("option")
+            new_val.value = key.replace("#", "")
+            new_val.appendChild(document.createTextNode(value))
+            document.getElementById("sel").append(new_val)
+        } else {
+            var new_val = document.createElement("option")
+            new_val.disabled = true
+            new_val.appendChild(document.createTextNode(key))
+            document.getElementById("sel").append(new_val)
+            // <option disabled style="font-style:italic; line-height: 40%;">&nbsp;South</option>
+        }
+    }
+    
+    
+});
+
+
+
+
 var consonants;
 var extras;
 var vowels;
@@ -44,12 +73,14 @@ function do_it() {
         }
         vowels = objectFlip(vowels)
         
+        endings = data.endings
+        
         /*for (var i in vowels) {
             vowels[i] = vowels[i][pos]
             vowels = objectFlip(vowels)
             console.log(vowels)
         }*/
-        val = transliterate(document.getElementById("left").value, consonants, extras, vowels)
+        val = transliterate(document.getElementById("left").value, consonants, extras, vowels, endings, pos)
         
         document.getElementById("right").value = val
         //console.log(data);
@@ -57,14 +88,13 @@ function do_it() {
 }
 
 
-function transliterate(input, consonants, extras, vowels) {
+function transliterate(input, consonants, extras, vowels, endings, val) {
     input = input.replaceAll("ॐ", "ओ३म्");
     
     for (const key in extras) {
         input = input.replaceAll(key, extras[key]);
     }
-    console.log(consonants, extras, vowels)
-
+    
     let output = "";
     const c = ["k", "g", "ṅ", "c", "j", "ñ", "ṭ", "ḍ", "ṇ", "t", "d", "n", "p", "b", "m", "y", "r", "l", "ḻ", "s", "ṣ", "h"];
     
@@ -73,11 +103,13 @@ function transliterate(input, consonants, extras, vowels) {
         output += consonants[char] || vowels[char] || char;
     }
     
-    output = output.replaceAll("a्", "").replaceAll("a3", "āā").replaceAll("i3", "īī")
+    output = output.replaceAll("a3", "āā").replaceAll("i3", "īī")
                    .replaceAll("u3", "ūū").replaceAll("ṛ3", "ṝṝ").replaceAll("ḷ3", "ḹḹ")
                    .replaceAll("ē3", "ēē").replaceAll("ai4", "āi").replaceAll("ō3", "ōō")
-                   .replaceAll("au4", "āu").replaceAll("a્", "").replaceAll("a్", "");
-    
+                   .replaceAll("au4", "āu")
+    for (const [key, value] of Object.entries(endings)) {
+        output = output.replaceAll(key + value[val], "")
+    }
     const keys = Object.keys(vowels);
     for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
