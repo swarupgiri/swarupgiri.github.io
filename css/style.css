@@ -882,3 +882,9 @@ select {
   width: 30%;
   box-sizing: border-box;
 }
+option:disabled {
+  color:rgb(196, 196, 196);
+  font-size: 90%;
+  font-weight: bold;
+  background-color: #034cbb8e;
+}

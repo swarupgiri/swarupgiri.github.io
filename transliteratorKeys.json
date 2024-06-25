@@ -1,12 +1,32 @@
 {
   "names": {
-    "North": "TEXT",
-    "#0": "Devanagari",
-    "#1": "Gujarati",
-    "South": "TEXT",
-    "#2": "Telugu"
+    "Devanagari": "TEXT",
+    "#0": ["Sanskrit", ""],
+    "#0.1": ["Hindi (Beta)", "αεμ"],
+    "Gujarati": "TEXT",
+    "#1": ["Gujarati", "αεμ"],
+    "Telugu": "TEXT",
+    "#2": ["Telugu", "μ"],
+    "Kannada": "TEXT",
+    "#6": ["Kannada (N/A)", ""],
+    "Tamil": "TEXT",
+    "#7": ["Tamil (N/A)", ""],
+    "Bengali-Assamese": "TEXT",
+    "#3": ["Bengali (N/A)", ""],
+    "#3.1": ["Assamese (N/A)", ""],
+    "Gurumukhi": "TEXT",
+    "#4": ["Punjabi (N/A)", ""],
+    "Odia": "TEXT",
+    "#5": ["Odia (N/A)", ""],
+    "Malayalam": "TEXT",
+    "#8": ["Malayalam (N/A)", ""],
+    "Tibetan": "TEXT",
+    "#9": ["Tibetan (N/A)", ""]
   },
-  
+  "endings": {
+    "a": ["्", "્", "్"]
+  },
+
   "consonants": {
     "ka": ["क", "ક", "క"],
     "kha": ["ख", "ખ", "ఖ"],
@@ -98,7 +118,7 @@
     "9": ["९", "૯", "౯"],
     "'": ["ऽ", "ઽ", "ఽ"],
     "ṃ": ["ं", "ં", "ం"],
-    "ṃ ": ["", "", "ఄ"],
+    " ṃ ": ["", "", "ఄ"],
     "ḥ": ["ः", "ઃ", "ః"],
     "̃": ["ँ", "ઁ", "ఁ"],
     "̃ ": ["ऀ", "", "ఀ"]
@@ -155,9 +175,6 @@
     "⠀ụ": ["ॖ", "", ""],
     "⠀ụ̄": ["ॗ", "", ""],
     "⠀aṛ": ["ॕ", "", ""]
-  },
-  "endings": {
-    "a": ["्", "્", "్"]
   }
 }
 
