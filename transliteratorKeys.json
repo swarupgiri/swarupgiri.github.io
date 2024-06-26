@@ -3,6 +3,8 @@
     "Devanagari": "TEXT",
     "#0": ["Sanskrit", ""],
     "#0.1": ["Hindi (Beta)", "αεμ"],
+    "#0.2": ["Nepali", ""],
+    "#0.3": ["Marathi", ""],
     "Gujarati": "TEXT",
     "#1": ["Gujarati", "αεμ"],
     "Telugu": "TEXT",
