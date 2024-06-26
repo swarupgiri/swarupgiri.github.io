@@ -888,3 +888,29 @@ option:disabled {
   font-weight: bold;
   background-color: #034cbb8e;
 }
+@media screen and (min-width: 1px) and (max-width: 1384px) {
+  #left {
+    width: 90%;
+    height: 20%;
+    transform: translate(5%, 20%)
+  }
+  #right {
+    width: 90%;
+    height: 20%;
+    transform: translate(5%, 350%);
+  }
+  .detail-box {
+    transform: translate(-400%, 400%);
+    top: 400%;
+    left: 56%;
+    padding: 0%;
+    width: 10%;
+    height: 10%;
+  }
+  #select {
+    transform: translate(25%, 800%);
+  }
+  .s {
+    display: none;
+  }
+}
