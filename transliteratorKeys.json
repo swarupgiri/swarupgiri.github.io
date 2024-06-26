@@ -14,10 +14,10 @@
     "Tamil": "TEXT",
     "#7": ["Tamil (N/A)", ""],
     "Bengali-Assamese": "TEXT",
-    "#3": ["Bengali (N/A)", ""],
-    "#3.1": ["Assamese (N/A)", ""],
+    "#4": ["Bengali (N/A)", ""],
+    "#4.1": ["Assamese (N/A)", ""],
     "Gurumukhi": "TEXT",
-    "#4": ["Punjabi (N/A)", ""],
+    "#3": ["Punjabi (N/A)", ""],
     "Odia": "TEXT",
     "#5": ["Odia (N/A)", ""],
     "Malayalam": "TEXT",
@@ -26,7 +26,7 @@
     "#9": ["Tibetan (N/A)", ""]
   },
   "endings": {
-    "a": ["्", "્", "్"]
+    "a": ["्", "્", "్", "", "", "", "", "", "", ""]
   },
 
   "consonants": {
