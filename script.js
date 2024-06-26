@@ -1,4 +1,12 @@
-
+/**
+ * α - remove final schwa sound
+ * ε - make aha - ehe and ahu - oho
+ * μ - make anusvara followed by plosive into a nasal
+ * γ - convert jñ to gy
+ * ι - Punjabi gemination
+ * 
+ * 
+*/
 
 function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();
@@ -147,6 +155,18 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
     
     if (lang.includes("γ")) {
         output = output.replaceAll("jñ", "gy");
+    }
+
+    if (lang.includes("ι")) {
+        
+        console.log(output.indexOf("ੱ"))
+        for (let i = 0; i < output.length; i++) {
+            if (output.indexOf("ੱ") !== -1) {
+                output = output.split("")
+                output[output.indexOf("ੱ")] = output[output.indexOf("ੱ") + 1]
+                output = output.join("")
+            }
+        }
     }
      
     return output;
