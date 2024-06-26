@@ -179,7 +179,7 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
 
     if (lang.includes("ο")) {
         output = output.replaceAll("a", "o")
-        output = output.replaceAll("oĩ", "o͠i").replaceAll("oũ", "o͠u")
+        output = output.replaceAll("oĩ", "o͠i").replaceAll("oũ", "o͠u").replaceAll("oū̃", "o͠ū")
     }
     if (lang.includes("ό")) {
         output = output.replaceAll("j", "z").replaceAll("ph", "f").replaceAll("s", "x").replaceAll("ch", "s").replaceAll("v", "w")
