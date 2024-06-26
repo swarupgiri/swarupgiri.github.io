@@ -900,8 +900,8 @@ option:disabled {
     transform: translate(5%, 350%);
   }
   .detail-box {
-    transform: translate(-400%, 400%);
-    top: 400%;
+    transform: translate(-400%, 1000%);
+    top: 800%;
     left: 56%;
     padding: 0%;
     width: 10%;
