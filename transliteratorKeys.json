@@ -2,9 +2,9 @@
   "names": {
     "Devanagari": "TEXT",
     "#0": ["Sanskrit", ""],
-    "#0.1": ["Hindi (Beta)", "αεμ"],
-    "#0.2": ["Nepali", ""],
-    "#0.3": ["Marathi", ""],
+    "#0.1": ["Hindi (Beta)", "αεμγ"],
+    "#0.2": ["Nepali", "μγ"],
+    "#0.3": ["Marathi", "μ"],
     "Gujarati": "TEXT",
     "#1": ["Gujarati", "αεμ"],
     "Telugu": "TEXT",

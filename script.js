@@ -144,8 +144,10 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
         .replaceAll("ṃp", "mp").replaceAll("ṃb", "mb")
         output = output.replace('\u1E43', '̃');
     }
-     
-    output = output.replaceAll("jñ", "gy");
+    
+    if (lang.includes("γ")) {
+        output = output.replaceAll("jñ", "gy");
+    }
      
     return output;
 }
