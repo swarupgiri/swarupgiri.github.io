@@ -888,7 +888,7 @@ option:disabled {
   font-weight: bold;
   background-color: #034cbb8e;
 }
-@media screen and (min-width: 1px) and (max-width: 1384px) {
+@media screen and (min-width: 1px) and (max-width: 1200px) {
   #left {
     width: 90%;
     height: 20%;
