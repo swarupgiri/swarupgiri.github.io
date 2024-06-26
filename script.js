@@ -111,6 +111,7 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
         input = input.replaceAll(key, extras[key]);
     }
     if (lang.includes("ι")) {input = input.replaceAll("ਸ਼", "श").replaceAll("ਂ", "ੰ")}
+    if (lang.includes("ο")) {input = input.replaceAll("ৰ", "র")}
     
     let output = "";
     const c = ["k", "g", "ṅ", "c", "j", "ñ", "ṭ", "ḍ", "ṇ", "t", "d", "n", "p", "b", "m", "y", "r", "l", "ḻ", "s", "ṣ", "h"];
@@ -125,7 +126,8 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
     .replaceAll("ē3", "ēē").replaceAll("ai4", "āi").replaceAll("ō3", "ōō")
     .replaceAll("au4", "āu")
     for (const [key, value] of Object.entries(endings)) {
-        output = output.replaceAll(key + value[val], "")
+        output = output.replaceAll(key + (value[val] !== "" ? value[val] : value[0]), "")
+        
     }
     const keys = Object.keys(vowels);
     for (let i = 0; i < keys.length; i++) {
@@ -174,7 +176,14 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
             if (output.indexOf("bh") !== -1) {o = output.indexOf("bh");console.log(o);output = output.split("");output[o] = "p";output[o + 1] = "";output[o + 2] += "̀";output = output.join("");}
         }
     }
-     
+
+    if (lang.includes("ο")) {
+        output = output.replaceAll("a", "o")
+        output = output.replaceAll("oĩ", "o͠i").replaceAll("oũ", "o͠u")
+    }
+    if (lang.includes("ό")) {
+        output = output.replaceAll("j", "z").replaceAll("ph", "f").replaceAll("s", "x").replaceAll("ch", "s").replaceAll("v", "w")
+    }
     return output;
 }
                 /*
