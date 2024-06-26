@@ -145,8 +145,10 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
      
     if (lang.includes("ε")) {output = output.replaceAll("aha", "ehe").replaceAll("ahu", "oho")}
     if (lang.includes("α")) {output = output.replaceAll(/a\b/g, '').replaceAll(/e\b/g, '')}
-     
-     
+    
+    if (lang.includes("ο")) {
+        output = output.replaceAll("ṃ", "ṅ")
+    }
     if (lang.includes("μ")) {
         output = output.replaceAll("ṃk", "ṅk").replaceAll("ṃg", "ṅg")
         .replaceAll("ṃc", "ñc").replaceAll("ṃj", "ñj")
