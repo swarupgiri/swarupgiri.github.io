@@ -3,7 +3,7 @@
  * ε - make aha - ehe and ahu - oho
  * μ - make anusvara followed by plosive into a nasal
  * γ - convert jñ to gy
- * ι - Punjabi gemination
+ * ι - Punjabi
  * 
  * 
 */
@@ -105,11 +105,12 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
     val = Math.floor(val)
     console.log(anu[val])
     console.log(chan[val])
-
+    
     
     for (const key in extras) {
         input = input.replaceAll(key, extras[key]);
     }
+    if (lang.includes("ι")) {input = input.replaceAll("ਸ਼", "श").replaceAll("ਂ", "ੰ")}
     
     let output = "";
     const c = ["k", "g", "ṅ", "c", "j", "ñ", "ṭ", "ḍ", "ṇ", "t", "d", "n", "p", "b", "m", "y", "r", "l", "ḻ", "s", "ṣ", "h"];
@@ -150,13 +151,13 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
         .replaceAll("ṃṭ", "ṇṭ").replaceAll("ṃḍ", "ṇḍ")
         .replaceAll("ṃt", "nt").replaceAll("ṃd", "nd").replace("ṃs", "ns").replace('ṃṣ', "nṣ")
         .replaceAll("ṃp", "mp").replaceAll("ṃb", "mb")
-        output = output.replace('\u1E43', '̃');
+        output = output.replaceAll('\u1E43', '̃');
     }
     
     if (lang.includes("γ")) {
         output = output.replaceAll("jñ", "gy");
     }
-
+    
     if (lang.includes("ι")) {
         
         console.log(output.indexOf("ੱ"))
@@ -166,6 +167,11 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
                 output[output.indexOf("ੱ")] = output[output.indexOf("ੱ") + 1]
                 output = output.join("")
             }
+            if (output.indexOf("gh") !== -1) {o = output.indexOf("gh");console.log(o);output = output.split("");output[o] = "k";output[o + 1] = "";output[o + 2] += "̀";output = output.join("");}
+            if (output.indexOf("jh") !== -1) {o = output.indexOf("jh");console.log(o);output = output.split("");output[o] = "ch";output[o + 1] = "";output[o + 2] += "̀";output = output.join("");}
+            if (output.indexOf("ḍh") !== -1) {o = output.indexOf("ḍh");console.log(o);output = output.split("");output[o] = "ṭ";output[o + 1] = "";output[o + 2] += "̀";output = output.join("");}
+            if (output.indexOf("dh") !== -1) {o = output.indexOf("dh");console.log(o);output = output.split("");output[o] = "t";output[o + 1] = "";output[o + 2] += "̀";output = output.join("");}
+            if (output.indexOf("bh") !== -1) {o = output.indexOf("bh");console.log(o);output = output.split("");output[o] = "p";output[o + 1] = "";output[o + 2] += "̀";output = output.join("");}
         }
     }
      
