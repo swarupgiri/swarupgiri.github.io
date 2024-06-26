@@ -103,12 +103,9 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
     input = input.replaceAll("ॐ", "ओ३म्");
     
     val = Math.floor(val)
-    console.log(anu[val])
-    console.log(chan[val])
-    
-    
     for (const key in extras) {
         input = input.replaceAll(key, extras[key]);
+        console.log(key)
     }
     if (lang.includes("ι")) {input = input.replaceAll("ਸ਼", "श").replaceAll("ਂ", "ੰ")}
     if (lang.includes("ο")) {input = input.replaceAll("ৰ", "র")}
