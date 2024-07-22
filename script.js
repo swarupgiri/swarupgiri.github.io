@@ -4,7 +4,7 @@
  * μ - make anusvara followed by plosive into a nasal
  * γ - convert jñ to gy
  * ι - Punjabi
- * 
+ * ρ - Nepali (rural)
  * 
 */
 
@@ -109,7 +109,25 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
     }
     if (lang.includes("ι")) {input = input.replaceAll("ਸ਼", "श").replaceAll("ਂ", "ੰ")}
     if (lang.includes("ο")) {input = input.replaceAll("ৰ", "র")}
-    
+    if (lang.includes("ρ")) {
+        input = input.split(" ");
+        input = input.map(element => {
+            let first = 0;
+            while ([".", ",", "?", "!"].includes(element[first])) {
+                first++;
+            }
+            if (element[first] == "ड") {
+                element = element.slice(0, first) + "ৰ" + element.slice(first + 1);
+            }
+            if (element[first] == "ढ") {
+                element = element.slice(0, first) + "র" + element.slice(first + 1);
+            }
+            return element;
+        });
+        input = input.join(" ");
+        input = input.replaceAll("्ड", "्ৰ").replaceAll("्ढ", "्র").replaceAll("ड", "ड़").replaceAll("ढ", "ढ़").replaceAll("ৰ", "ड").replaceAll("র", "ढ");
+        input = input.replaceAll("ण्", "ৰ").replaceAll("ण", "ड़").replaceAll("ৰ", "ण्")
+    }    
     let output = "";
     const c = ["k", "g", "ṅ", "c", "j", "ñ", "ṭ", "ḍ", "ṇ", "t", "d", "n", "p", "b", "m", "y", "r", "l", "ḻ", "s", "ṣ", "h"];
     
@@ -157,6 +175,19 @@ function transliterate(input, consonants, extras, vowels, endings, val, lang, an
     
     if (lang.includes("γ")) {
         output = output.replaceAll("jñ", "gy");
+    }
+
+    if (lang.includes("ρ")) {
+        output = output.replaceAll("ñ", "n")
+        output = output.replaceAll(/nja\b/g, 'nj').replaceAll(/njha\b/g, 'njh').replaceAll(/ncha\b/g, 'nch').replaceAll(/nchha\b/g, 'nchh');
+        output = output.replaceAll("ō", "o").replaceAll("ē", "e")
+        output = output.replaceAll("kṣha", "chhye").replaceAll(/chhye\b/g, 'chhya').replaceAll("yas", "es")
+        output = output.replaceAll("kṣh", "chhy")
+        output = output.replaceAll("sh", "s").replaceAll("ṣh", "s")
+        output = output.replaceAll("swa", "swo")
+        output = output.replaceAll("v", "b")
+        output = output.replaceAll("ṛ", "ṛi").replaceAll("ṝ", "ṛī").replaceAll("ḷ", "ḷṛi").replaceAll("ḹ", "ḷṛī")
+        // swa -> swo
     }
     
     if (lang.includes("ι")) {

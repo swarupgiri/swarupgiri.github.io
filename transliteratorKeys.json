@@ -4,6 +4,7 @@
     "#0": ["Sanskrit", ""],
     "#0.1": ["Hindi (Beta)", "αεμγ"],
     "#0.2": ["Nepali", "μγ"],
+    "#0.25": ["Nepali (Rural)", "μγρ"],
     "#0.3": ["Marathi", "μ"],
     "Gujarati": "TEXT",
     "#1": ["Gujarati", "αεμ"],
