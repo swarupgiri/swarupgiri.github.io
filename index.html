@@ -13,7 +13,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <!---->
     <link href="css/responsive.css" rel="stylesheet" />
-    <title>Swarup's Page</title>
+    <title id="edd">Swarup's Page</title>
 </head>
 <body>
     
@@ -24,7 +24,7 @@
               <div class="contact_nav">
                 <a href="">
                 </a>
-                <a href="https://swarupgiri.github.io/"><h1 style="color:white" contenteditable>Swarup Giri</h1></a>
+                <a href="https://swarupgiri.github.io/"><h1 id = "eed" style="color:white" contenteditable onkeyup="editItNow()">Swarup Giri</h1></a>
                 <a href="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                   <span">
@@ -62,5 +62,14 @@
     </div>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="data.json"></script>
+    <script>
+      function editItNow() {
+        document.getElementById("edd").innerHTML = document.getElementById("eed").innerHTML
+        if (document.getElementById("eed").innerHTML == "") {
+          document.getElementById("eed").innerHTML = "⠀         ⠀"
+          document.getElementById("edd").innerHTML = "⠀         ⠀"
+        }
+      }
+    </script>
 </body>
 </html>
